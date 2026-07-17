@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MBC Construction Ltd | Builders &amp; Contractors, Gibraltar</title>
+<meta name="description" content="MBC Construction Ltd — Gibraltar builders and contractors since 2013. New build, refurbishment, upkeep and demolition. Three-time Gibraltar Heritage Award recognised.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #64748B;
+    --secondary: #94A3B8;
+    --accent: #EA580C;
+    --accent-dark: #C2410C;
+    --ink: #0F172A;
+    --bg: #F8FAFC;
+    --fg: #334155;
+    --card: #FFFFFF;
+    --muted: #EBF0F5;
+    --mutedfg: #64748B;
+    --border: #E2E8F0;
+    --radius-lg: 16px;
+    --radius-md: 10px;
+    --max: 1200px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: 'Source Sans 3', Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Lexend', 'Arial Black', sans-serif;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0;
+  }
+  p { margin: 0; }
+  a { color: inherit; text-decoration: none; }
+  ul { margin: 0; padding: 0; list-style: none; }
+  img { max-width: 100%; display: block; }
+  button { font: inherit; cursor: pointer; }
+
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+
+  .skip-link {
+    position: absolute; left: -999px; top: auto;
+    background: var(--accent); color: #fff; padding: 10px 16px; border-radius: 6px; z-index: 200;
+  }
+  .skip-link:focus { left: 16px; top: 16px; }
+
+  .badge-mark {
+    width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0;
+    background: repeating-linear-gradient(135deg, var(--accent) 0 8px, var(--ink) 8px 16px);
+  }
+
+  /* HEADER */
+  .site-header {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(15,23,42,0.97);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .header-row {
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .logo {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.15rem; color: #fff;
+  }
+  .logo span.dim { font-weight: 400; color: var(--secondary); }
+  .nav-links {
+    display: flex; align-items: center; gap: 30px;
+    font-size: 0.92rem; font-weight: 500; color: rgba(255,255,255,0.82);
+  }
+  .nav-links a:hover { color: #fff; }
+  .header-actions { display: flex; align-items: center; gap: 14px; }
+  .phone-link { font-size: 0.92rem; font-weight: 600; color: rgba(255,255,255,0.9); }
+  .phone-link:hover { color: #fff; }
+  .btn {
+    display: inline-block; font-weight: 600; padding: 11px 22px; border-radius: 8px;
+    border: none; transition: background-color .15s ease, border-color .15s ease;
+  }
+  .btn-accent { background: var(--accent); color: #fff; }
+  .btn-accent:hover { background: var(--accent-dark); }
+  .btn-outline-dark { border: 1px solid rgba(255,255,255,0.3); color: #fff; }
+  .btn-outline-dark:hover { border-color: rgba(255,255,255,0.6); }
+  .btn-ink { background: var(--ink); color: #fff; }
+  .btn-ink:hover { background: #1e293b; }
+  .btn-sm { padding: 9px 18px; font-size: 0.9rem; }
+
+  .nav-toggle {
+    display: none; background: none; border: none; color: #fff; padding: 8px;
+  }
+  .nav-toggle svg { width: 24px; height: 24px; }
+
+  .mobile-nav {
+    display: none; flex-direction: column; gap: 4px; padding: 6px 0 16px;
+    color: rgba(255,255,255,0.88); font-size: 0.95rem; font-weight: 500;
+  }
+  .mobile-nav a { padding: 8px 0; }
+  .mobile-nav.open { display: flex; }
+
+  @media (max-width: 860px) {
+    .nav-links, .phone-link { display: none; }
+    .nav-toggle { display: inline-flex; }
+  }
+  @media (max-width: 480px) {
+    .header-actions .btn-accent { display: none; }
+  }
+  .mobile-cta { margin-top: 6px; display: inline-block; }
+
+  /* HERO */
+  .hero {
+    background-color: var(--ink);
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(234,88,12,0.20), transparent 42%),
+      radial-gradient(circle at 85% 75%, rgba(100,116,139,0.35), transparent 48%);
+    color: #fff;
+  }
+  .hero-inner { padding: 64px 0 88px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    color: #fb923c; background: rgba(251,146,60,0.1); border: 1px solid rgba(251,146,60,0.3);
+    border-radius: 999px; padding: 6px 14px; margin-bottom: 22px;
+  }
+  .hero h1 { font-size: 3rem; font-weight: 800; max-width: 680px; color: #fff; }
+  .hero p.lede { margin-top: 22px; max-width: 620px; font-size: 1.15rem; color: #cbd5e1; }
+  .hero-ctas { margin-top: 30px; display: flex; gap: 16px; flex-wrap: wrap; }
+  .stats-row {
+    margin-top: 56px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1);
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 720px;
+  }
+  .stat-num { font-family: 'Lexend', sans-serif; font-size: 1.9rem; font-weight: 700; color: #fff; }
+  .stat-label { font-size: 0.88rem; color: #94a3b8; margin-top: 4px; }
+  @media (max-width: 700px) {
+    .hero h1 { font-size: 2.2rem; }
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* SECTIONS */
+  .section { padding: 92px 0; }
+  .section-muted { background: var(--muted); }
+  .eyebrow-accent {
+    color: var(--accent); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+  .section-title { font-size: 2.1rem; font-weight: 700; margin-top: 12px; }
+  .section-intro { max-width: 640px; }
+  .section-intro p { margin-top: 16px; color: var(--mutedfg); }
+  .center { text-align: center; margin-left: auto; margin-right: auto; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center; }
+  .about-copy p { margin-top: 16px; color: var(--fg); }
+  .about-copy p:first-of-type { margin-top: 24px; }
+  .dark-card { background: var(--ink); color: #fff; border-radius: var(--radius-lg); padding: 40px; }
+  .dark-card h3 { color: #fff; font-size: 1.2rem; margin-bottom: 20px; }
+  .dark-card p { color: #cbd5e1; }
+  .mini-stats { margin-top: 30px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; text-align: center; }
+  .mini-stat { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 16px 8px; }
+  .mini-stat .num { font-family: 'Lexend', sans-serif; font-weight: 700; font-size: 1.4rem; color: #fb923c; }
+  .mini-stat .lbl { font-size: 0.75rem; color: #94a3b8; margin-top: 4px; }
+  @media (max-width: 900px) { .about-grid { grid-template-columns: 1fr; } }
+
+  /* SERVICES */
+  .services-grid { margin-top: 52px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .service-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg);
+    padding: 26px; box-shadow: 0 1px 2px rgba(0,0,0,0.04); transition: box-shadow .15s ease;
+  }
+  .service-card:hover { box-shadow: 0 8px 20px rgba(15,23,42,0.08); }
+  .icon-badge {
+    width: 48px; height: 48px; border-radius: 10px; background: #FFE8D6; color: var(--accent);
+    display: flex; align-items: center; justify-content: center; margin-bottom: 18px;
+  }
+  .icon-badge svg { width: 24px; height: 24px; }
+  .service-card h3 { font-size: 1.1rem; }
+  .service-card p { margin-top: 8px; font-size: 0.92rem; color: var(--mutedfg); }
+  @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .services-grid { grid-template-columns: 1fr; } }
+
+  /* PROJECTS */
+  .projects-grid { margin-top: 46px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .project-card {
+    border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden;
+    background: var(--card); box-shadow: 0 1px 2px rgba(0,0,0,0.04); transition: box-shadow .15s ease;
+  }
+  .project-card:hover { box-shadow: 0 10px 24px rgba(15,23,42,0.1); }
+  .project-media {
+    height: 130px;
+    background: repeating-linear-gradient(135deg, var(--accent) 0 18px, var(--ink) 18px 36px);
+    opacity: 0.92;
+  }
+  .project-body { padding: 22px; }
+  .tag { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); }
+  .project-body h3 { font-size: 1.05rem; margin-top: 8px; }
+  .project-body p { margin-top: 8px; font-size: 0.9rem; color: var(--mutedfg); }
+  .wide-card {
+    margin-top: 24px; display: flex; align-items: center; gap: 28px; flex-wrap: wrap;
+    border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--card); padding: 26px 30px;
+  }
+  @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 620px) { .projects-grid { grid-template-columns: 1fr; } }
+
+  /* GROUP / SISTER COMPANY */
+  .group-section { background: var(--ink); color: #fff; }
+  .group-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+  .group-grid h2 { color: #fff; }
+  .group-grid .about-copy p { color: #cbd5e1; margin-top: 20px; }
+  .pill-row { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 10px; }
+  .pill { background: rgba(255,255,255,0.1); border-radius: 999px; padding: 7px 16px; font-size: 0.88rem; }
+  .panel { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: var(--radius-lg); padding: 36px; }
+  .panel h3 { color: #fff; font-size: 1.15rem; margin-bottom: 16px; }
+  .check-list li { display: flex; gap: 12px; margin-top: 14px; color: #cbd5e1; font-size: 0.95rem; }
+  .check-list svg { width: 20px; height: 20px; color: #fb923c; flex-shrink: 0; margin-top: 2px; }
+  @media (max-width: 900px) { .group-grid { grid-template-columns: 1fr; } }
+
+  /* CTA BAND */
+  .cta-band { background: var(--accent); }
+  .cta-inner { padding: 46px 0; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+  .cta-inner h2 { color: #fff; font-size: 1.6rem; }
+  @media (max-width: 620px) { .cta-inner { justify-content: center; text-align: center; } }
+
+  /* CONTACT */
+  .contact-grid { display: grid; grid-template-columns: 2fr 3fr; gap: 56px; }
+  .contact-item-list { margin-top: 34px; }
+  .contact-item { display: flex; gap: 16px; margin-top: 24px; }
+  .contact-item:first-child { margin-top: 0; }
+  .icon-circle {
+    width: 42px; height: 42px; border-radius: 10px; background: #FFE8D6; color: var(--accent);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .icon-circle svg { width: 20px; height: 20px; }
+  .contact-item h4 { font-size: 1rem; color: var(--ink); }
+  .contact-item p, .contact-item a { color: var(--mutedfg); font-size: 0.95rem; }
+  .contact-item a:hover { color: var(--accent); }
+  .social-row { margin-top: 30px; display: flex; gap: 12px; }
+  .social-btn {
+    width: 42px; height: 42px; border-radius: 10px; background: var(--muted); color: var(--mutedfg);
+    display: flex; align-items: center; justify-content: center; transition: background-color .15s, color .15s;
+  }
+  .social-btn:hover { background: #FFE8D6; color: var(--accent); }
+  .social-btn svg { width: 20px; height: 20px; }
+
+  .contact-form { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 34px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .field { margin-top: 20px; }
+  .field:first-child, .form-row { margin-top: 0; }
+  .field label, .form-row label { display: block; font-weight: 600; font-size: 0.9rem; color: var(--ink); margin-bottom: 7px; }
+  .field input, .field textarea, .form-row input {
+    width: 100%; border: 1px solid var(--border); border-radius: 8px; padding: 11px 14px;
+    font: inherit; color: var(--fg); background: #fff;
+  }
+  .field input:focus, .field textarea:focus, .form-row input:focus {
+    outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(234,88,12,0.15);
+  }
+  .contact-form button { margin-top: 22px; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+
+  .map-wrap { margin-top: 20px; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; height: 300px; }
+  .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+  /* FOOTER */
+  footer { background: var(--ink); color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-grid { padding: 56px 0; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1.2fr; gap: 32px; }
+  .footer-col h3 { color: #fff; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; }
+  .footer-col p { font-size: 0.92rem; }
+  .footer-col ul li { margin-top: 9px; font-size: 0.92rem; }
+  .footer-col ul li a:hover { color: #fff; }
+  .footer-logo { display: flex; align-items: center; gap: 10px; font-family: 'Lexend', sans-serif; font-weight: 700; color: #fff; font-size: 1.1rem; margin-bottom: 12px; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); }
+  .footer-bottom-inner { padding: 22px 0; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 0.8rem; }
+  @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <div class="header-row">
+      <a href="#top" class="logo">
+        <span class="badge-mark" aria-hidden="true"></span>
+        MBC <span class="dim">Construction</span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">Company</a>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#group">1st Choice Windows</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+35020067708" class="phone-link">+350 200 67708</a>
+        <a href="#contact" class="btn btn-accent btn-sm">Request Callback</a>
+        <button id="menuBtn" class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mobileNav">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" /></svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="mobileNav" class="mobile-nav" aria-label="Mobile">
+      <a href="#about">Company</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#group">1st Choice Windows</a>
+      <a href="#contact">Contact</a>
+      <a href="tel:+35020067708">+350 200 67708</a>
+      <a href="#contact" class="btn btn-accent btn-sm mobile-cta">Request Callback</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section id="top" class="hero">
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Gibraltar Builders &amp; Contractors · Est. 2013</p>
+      <h1>Building Gibraltar,<br>one project at a time.</h1>
+      <p class="lede">MBC Construction Ltd delivers new build, refurbishment, upkeep and demolition projects across Gibraltar — known for tight organisation, on-time delivery, and extreme care for final detail, all with our own in-house trades.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-accent">Get a Quote</a>
+        <a href="#projects" class="btn btn-outline-dark">View Our Projects</a>
+      </div>
+
+      <dl class="stats-row">
+        <div>
+          <dt class="visually-hidden"></dt>
+          <dd class="stat-num">2013</dd>
+          <dd class="stat-label">Founded in Gibraltar</dd>
+        </div>
+        <div>
+          <dd class="stat-num">3×</dd>
+          <dd class="stat-label">Gibraltar Heritage Awards</dd>
+        </div>
+        <div>
+          <dd class="stat-num">0</dd>
+          <dd class="stat-label">Subcontractors — all in-house</dd>
+        </div>
+        <div>
+          <dd class="stat-num">2</dd>
+          <dd class="stat-label">Companies in the MBC Group</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="about" class="section" aria-labelledby="about-heading">
+    <div class="wrap about-grid">
+      <div class="reveal about-copy">
+        <span class="eyebrow-accent">Our Company</span>
+        <h2 id="about-heading" class="section-title">A niche for heritage, a name for reliability.</h2>
+        <p>MBC Construction Limited was established in March 2013 by owners <strong>Moy Benzaquen</strong> and <strong>Elias Attias</strong>, who spotted a niche in the market at the time: the refurbishment of old residential buildings in Gibraltar. The company has since grown to take on a wide range of low-to-medium sized new build, refurbishment, upkeep and demolition projects.</p>
+        <p>MBC is well known locally for its organisation, moving projects forward in a timely fashion, within a client's budget, and with extreme care to final details. The team treats every job — big or small — as <em>"a work of art,"</em> aiming to complete each contract smoothly and with the least headache for the client.</p>
+        <p>Specialising in epoxy resin finishes and a wide range of trades, MBC keeps projects entirely in-house without subcontractors, and operates its own yard and storage facility at 16 Catalan Bay Road for processing and distributing building materials.</p>
+      </div>
+
+      <div class="reveal">
+        <div class="dark-card">
+          <h3>Recognised for heritage craftsmanship</h3>
+          <p>On three occasions, clients of MBC have received the <strong style="color:#fff">Gibraltar Heritage Award</strong> for the refurbishment of old, derelict buildings — brought back to life while keeping their historical details intact.</p>
+          <div class="mini-stats">
+            <div class="mini-stat"><div class="num">3×</div><div class="lbl">Heritage Award</div></div>
+            <div class="mini-stat"><div class="num">2013</div><div class="lbl">Established</div></div>
+            <div class="mini-stat"><div class="num">GI</div><div class="lbl">Based &amp; Built</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="section section-muted" aria-labelledby="services-heading">
+    <div class="wrap">
+      <div class="reveal section-intro center">
+        <span class="eyebrow-accent">What We Do</span>
+        <h2 id="services-heading" class="section-title">Our Services</h2>
+        <p>From ground-up builds to careful heritage restoration — handled by our own trades from start to finish.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="reveal service-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6" /></svg></div>
+          <h3>New Build</h3>
+          <p>Ground-up construction of new residential and commercial structures, managed end-to-end by our team.</p>
+        </div>
+        <div class="reveal service-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11 4h2m-1 0v2m0 12v2m8-9h2M2 12h2m14.14 6.14l1.42 1.42M4.44 4.44l1.42 1.42m0 12.28l-1.42 1.42M18.14 5.86l1.42-1.42M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg></div>
+          <h3>Refurbishment</h3>
+          <p>Sensitive restoration of older and heritage buildings — three-time Gibraltar Heritage Award recognised.</p>
+        </div>
+        <div class="reveal service-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M11 5.882L8.5 3.375M11 5.882c1.5 1.5 4 2.618 6.5 2.618M8.5 3.375c1.5-1.5 4-1.5 5.5 0m-8.5 8.5H3a1 1 0 01-1-1v-2a1 1 0 011-1h2.5" /></svg></div>
+          <h3>Upkeep</h3>
+          <p>Ongoing maintenance contracts that keep properties in top condition, on schedule and on budget.</p>
+        </div>
+        <div class="reveal service-card">
+          <div class="icon-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7V4a1 1 0 011-1h4a1 1 0 011 1v3M4 7h16" /></svg></div>
+          <h3>Demolition</h3>
+          <p>Safe, controlled demolition and site clearance to prepare Gibraltar sites for their next chapter.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section" aria-labelledby="projects-heading">
+    <div class="wrap">
+      <div class="reveal section-intro">
+        <span class="eyebrow-accent">Our Work</span>
+        <h2 id="projects-heading" class="section-title">Selected Projects</h2>
+        <p>A sample of new build, refurbishment and heritage restoration work completed across Gibraltar. Full case studies are available on request.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Heritage Refurbishment</span>
+            <h3>8 Governor's Lane</h3>
+            <p>Refurbishment of a period property in Gibraltar's Town Area.</p>
+          </div>
+        </article>
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Heritage Refurbishment</span>
+            <h3>6 George's Lane</h3>
+            <p>Full refurbishment of a historic residential building.</p>
+          </div>
+        </article>
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Heritage Refurbishment</span>
+            <h3>15 Governor's Parade</h3>
+            <p>Restoration project in Gibraltar's Town Area.</p>
+          </div>
+        </article>
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Gibraltar Heritage Award</span>
+            <h3>Phoenix House, 18 George's Lane</h3>
+            <p>Refurbishment of a derelict heritage building, restored to award-recognised standard.</p>
+          </div>
+        </article>
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Commercial Refurbishment</span>
+            <h3>317 Main Street</h3>
+            <p>Refurbishment works on Gibraltar's central Main Street.</p>
+          </div>
+        </article>
+        <article class="reveal project-card">
+          <div class="project-media" aria-hidden="true"></div>
+          <div class="project-body">
+            <span class="tag">Community</span>
+            <h3>Gibraltar Jewish Preschool</h3>
+            <p>Construction and fit-out works for this community education facility.</p>
+          </div>
+        </article>
+      </div>
+
+      <article class="reveal wide-card">
+        <span class="tag">Heritage Restoration</span>
+        <div>
+          <h3 style="font-size:1.05rem;">Jews Gate Cemetery</h3>
+          <p style="margin-top:6px; color:var(--mutedfg); font-size:0.92rem;">Restoration and maintenance works at one of Gibraltar's most historic and frequently visited heritage sites.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="group" class="section group-section" aria-labelledby="group-heading">
+    <div class="wrap group-grid">
+      <div class="reveal about-copy">
+        <span class="eyebrow-accent" style="color:#fb923c;">The MBC Group</span>
+        <h2 id="group-heading" class="section-title">1st Choice Windows &amp; Aluminium Ltd</h2>
+        <p>Established in February 2015, 1st Choice Windows &amp; Aluminium Limited is MBC Construction's sister company, manufacturing UPVC and aluminium windows, glass curtains, doors, and metal structures, alongside kitchen fitting services. Recent work includes a galvanized steel and glass stairway structure.</p>
+        <div class="pill-row">
+          <span class="pill">UPVC &amp; Aluminium Windows</span>
+          <span class="pill">Glass Curtains &amp; Doors</span>
+          <span class="pill">Metal Structures</span>
+          <span class="pill">Kitchen Fitting</span>
+        </div>
+      </div>
+      <div class="reveal panel">
+        <h3>Why work with the Group</h3>
+        <ul class="check-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>All trades kept in-house — no subcontractor handoffs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Windows, doors and metalwork sourced from our own sister company</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>Own yard and storage facility at 16 Catalan Bay Road</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>One point of contact from design through to completion</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-band">
+    <div class="wrap cta-inner">
+      <h2>Have a project in mind? Let's talk.</h2>
+      <a href="#contact" class="btn btn-ink">Request a Callback</a>
+    </div>
+  </section>
+
+  <section id="contact" class="section" aria-labelledby="contact-heading">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <span class="eyebrow-accent">Get In Touch</span>
+        <h2 id="contact-heading" class="section-title">Contact MBC Construction</h2>
+        <p style="margin-top:16px; color:var(--mutedfg);">Tell us about your project and we'll get back to you to arrange a site visit and quote.</p>
+
+        <div class="contact-item-list">
+          <div class="contact-item">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></div>
+            <div>
+              <h4>Office</h4>
+              <p>Unit 1, 1st Floor, 113 Main Street<br>Gibraltar, GX11 1AA</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg></div>
+            <div>
+              <h4>Phone</h4>
+              <a href="tel:+35020067708">+350 200 67708</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg></div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:info@mbc.gi">info@mbc.gi</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-row">
+          <a href="https://www.facebook.com/mbc.gibraltar/" target="_blank" rel="noopener noreferrer" aria-label="MBC Construction on Facebook" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 10-11.5 9.87v-6.98H7.9V12h2.6V9.8c0-2.56 1.53-3.98 3.87-3.98 1.12 0 2.3.2 2.3.2v2.53h-1.3c-1.28 0-1.68.8-1.68 1.62V12h2.86l-.46 2.89h-2.4v6.98A10 10 0 0022 12z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="reveal">
+        <form class="contact-form" action="mailto:info@mbc.gi" method="post" enctype="text/plain">
+          <div class="form-row">
+            <div>
+              <label for="name">Your name</label>
+              <input id="name" name="name" type="text" required>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel">
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Tell us about your project</label>
+            <textarea id="message" name="message" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn-accent">Send Request</button>
+        </form>
+
+        <div class="map-wrap">
+          <iframe
+            title="Map showing MBC Construction Ltd, 113 Main Street, Gibraltar"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps?q=113+Main+Street,+Gibraltar&output=embed">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-grid">
+    <div class="footer-col">
+      <a href="#top" class="footer-logo">
+        <span class="badge-mark" aria-hidden="true"></span>
+        MBC Construction
+      </a>
+      <p>Builders and contractors in Gibraltar since 2013. New build, refurbishment, upkeep and demolition.</p>
+    </div>
+    <div class="footer-col">
+      <h3>Navigate</h3>
+      <ul>
+        <li><a href="#about">Company</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#group">1st Choice Windows</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Services</h3>
+      <ul>
+        <li>New Build</li>
+        <li>Refurbishment</li>
+        <li>Upkeep</li>
+        <li>Demolition</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h3>Contact</h3>
+      <ul>
+        <li>Unit 1, 1st Floor, 113 Main Street, Gibraltar, GX11 1AA</li>
+        <li><a href="tel:+35020067708">+350 200 67708</a></li>
+        <li><a href="mailto:info@mbc.gi">info@mbc.gi</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="wrap footer-bottom-inner">
+      <p>&copy; <span id="year"></span> MBC Construction Ltd, Gibraltar. All rights reserved.</p>
+      <p>Content compiled from publicly available company information (mbc.gi).</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  menuBtn.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileNav.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
