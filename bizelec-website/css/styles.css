@@ -175,7 +175,7 @@ ul { margin: 0; padding: 0; list-style: none; }
    ========================================================================== */
 .site-header {
   position: sticky;
-  top: 0;
+  top: env(safe-area-inset-top, 0px);
   z-index: 100;
   background: rgba(8, 26, 58, .96);
   backdrop-filter: blur(10px);
@@ -809,13 +809,14 @@ ul { margin: 0; padding: 0; list-style: none; }
 .site-footer__bottom .sep { margin-inline: 8px; opacity: 0.6; }
 
 /* ---------- Reveal on scroll ---------- */
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* Content stays visible at rest; JS adds a gentle rise only for items below the fold. */
+.reveal.is-pending { transform: translateY(14px); transition: transform .6s ease; }
+.reveal.is-pending.is-visible { transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal.is-pending { transform: none; }
 }
 
 /* ==========================================================================
