@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 90">
+  <g fill="none" stroke="#24502f" stroke-width="5.5" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M7 41 58 7 92 30"/><path d="M18 34v52"/>
+  </g>
+  <text x="27" y="74" fill="#24502f" font-family="Plus Jakarta Sans, Arial, sans-serif" font-size="35" font-weight="800" letter-spacing="-1">DP</text>
+  <rect x="88" y="23" width="28" height="13" rx="5" fill="#24502f" transform="rotate(32 102 29.5)"/>
+  <path d="M113 41c3 4 1 9-4 10l-7 1.5V61" fill="none" stroke="#24502f" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="98" y="59" width="8" height="28" rx="3.5" fill="#24502f"/>
+</svg>
